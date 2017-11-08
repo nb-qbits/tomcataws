@@ -1,10 +1,10 @@
-# Ansible Scalable and Load Balanced (SLB) Tomcat
+# Ansible And Tomcat
 
-An ansible playbook to deploy on Amazon AWS a scalable set of instances of Apache Tomcat 7 container proxied via a “load-balancing purpose” instance driven by HAProxy, as a bonus I  Nagios3 on all the instance, so even an example of infrastructure monitoring is given.
+An ansible playbook to deploy on Amazon AWS a scalable set of instances of Apache Tomcat 
 
-So the ansible playbook will launch:
+ansible playbook will launch:
 
-* 2 EC2 micro instances tagged as *tomcat* 
+* 2 EC2 instances tagged as *tomcat* 
     * Security Group with port 8080 and 22
     * Tomcat 7 installed via apt
      
@@ -51,11 +51,4 @@ All the ec2 instances will be configured starting from this file.
 Now you are able to launch the playbook
 
     ansible-playbook -i ec2.py --private-key=<path_to_your_aws-pem_key ec2-lauch.yml  -v
-    
-## Notes
-
-* Templates and playbooks are massively compiled from variables yaml files. Remeber to check them before installing your inventory.
-
-## Known Issues
-
-* Launching the playbook for the first time may fail resulting in *AnsibleUndefinedVariable* for some values of ec2 tags (*ec2_tag_Name*). Running the same for a new attempt will succeed silently.
+ 
